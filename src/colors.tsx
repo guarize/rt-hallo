@@ -49,7 +49,7 @@ function ColorCircle({
       {!removable && children}
       {removable && (
         <>
-          <p className="absolute opacity-0 group-hover:opacity-100 font-mono text-[18px] font-semibold text-black">
+          <p className="absolute opacity-0 group-hover:opacity-100 font-mono text-[13px] 2xl:text-[18px] font-semibold text-black">
             Remover
           </p>
           <p className="absolute opacity-100 group-hover:opacity-0">
@@ -152,7 +152,7 @@ function Colors() {
                   removable
                   handleDeleteColor={handleDeleteColor}
                 >
-                  <p className="font-mono text-[28px] font-semibold text-black">
+                  <p className="font-mono text-[22px] 2xl:text-[28px] font-semibold text-black">
                     {index + 1}
                   </p>
                 </ColorCircle>
