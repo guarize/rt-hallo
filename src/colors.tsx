@@ -1,7 +1,5 @@
 import classNames from 'classnames';
 import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 type Colors = 'red' | 'green' | 'blue' | 'yellow';
 
@@ -31,7 +29,7 @@ function ColorCircle({
 } & any &
   React.HTMLAttributes<HTMLDivElement>) {
   const className = classNames(
-    'flex items-center justify-center w-24 h-24 rounded-full relative shadow-sm',
+    'flex items-center justify-center w-16 h-16 2xl:w-24 2xl:h-24 rounded-full relative shadow-sm',
     colorsMapper[color],
     {
       'cursor-default': !clickable,
@@ -110,32 +108,12 @@ function Colors() {
     };
   }, [colorsResults?.length]);
 
-  function notifyCommands() {
-    toast(
-      <div className="flex flex-col">
-        <p className="font-bold font-sans text-gray-950">Comandos:</p>
-        <p className="font-semibold  font-sans text-red-500">1 - Vermelho</p>
-        <p className="font-semibold font-sans text-green-500">2 - Verde</p>
-        <p className="font-semibold font-sans text-blue-500">3 - Azul</p>
-        <p className="font-semibold font-sans text-yellow-500">4 - Amarelo</p>
-      </div>,
-    );
-  }
-
   const availableColors: Colors[] = ['red', 'green', 'blue', 'yellow'];
 
-  React.useLayoutEffect(() => {
-    console.log('test');
-
-    // setTimeout(() => {
-    notifyCommands();
-    // }, 1000);
-  }, []);
-
   return (
-    <div className="w-screen h-screen bg-gray-[#242424] overflow-x-hidden">
-      <div className="w-full h-full flex flex-col pt-44 pb-20 items-center">
-        <h1 className="font-sans text-3xl font-bold">
+    <div className="w-screen h-screen overflow-x-hidden bg-[#242424]">
+      <div className="w-full h-full flex flex-col pt-16 2xl:pt-44 pb-20 items-center">
+        <h1 className="font-sans text-2xl 2xl:text-3xl font-bold">
           <p>Memória Cromática</p>
         </h1>
 
@@ -151,8 +129,10 @@ function Colors() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col items-center justify-center  pb-24">
-          <h1 className="font-sans text-2xl font-bold text-left">Resultado:</h1>
+        <div className="mt-16 flex flex-col items-center justify-center  pb-24">
+          <h1 className="font-sans text-2xl 2xl:text-3xl font-bold text-left">
+            Resultado:
+          </h1>
 
           {Boolean(colorsResults.length) && (
             <button
@@ -164,7 +144,7 @@ function Colors() {
           )}
 
           <div className="mt-10 w-full flex flex-col items-start justify-start gap-4">
-            <div className="flex items-center justify-center gap-5 max-w-[1024px] flex-wrap">
+            <div className="flex items-center justify-center gap-5 max-w-[1024px] flex-wrap px-4">
               {colorsResults.map(({ color, index }) => (
                 <ColorCircle
                   color={color}
@@ -189,13 +169,6 @@ function Colors() {
           </div>
         </div>
       </div>
-      <ToastContainer
-        pauseOnHover
-        hideProgressBar
-        autoClose={10000}
-        closeOnClick
-        toastClassName="!bg-gray-100"
-      />
     </div>
   );
 }

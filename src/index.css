@@ -17,3 +17,23 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Define the background color of the scrollbar track */
+::-webkit-scrollbar-track {
+  @apply bg-[#242424];
+}
+
+/* Define the color and style of the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  @apply rounded-[10px] bg-gray-700;
+}
+
+/* Define the behavior of the scrollbar when hovered */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
